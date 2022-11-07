@@ -531,7 +531,7 @@ roscha_env_add_template(struct roscha_env *env, char *name, char *body)
 	struct template *tmpl = parser_parse_template(parser);
 	if (parser->errors->len > 0) {
 		sds errmsg = NULL;
-		while ((errmsg = vector_pop(parser->errors)) != NULL) {
+		while ((errmsg = roscha_vector_pop(parser->errors)) != NULL) {
 			roscha_vector_push(env->errors, errmsg);
 		}
 		parser_destroy(parser);

@@ -99,7 +99,7 @@ void _roscha_vector_push(struct roscha_object *vec, struct roscha_object *val);
  * Removes and returns the last value from a reference counted vector; doesn't
  * decrement the reference count since the value is returned.
  */
-struct roscha_object *roscha_vector_pop(struct roscha_object *vec);
+struct roscha_object *roscha_roscha_vector_pop(struct roscha_object *vec);
 
 /*
  * Helper macro to create a roscha object wrapper and insert it to the hmap in

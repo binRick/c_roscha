@@ -35,7 +35,7 @@ roscha_vector_push(struct vector *vec, void *val)
 }
 
 void *
-vector_pop(struct vector *vec)
+roscha_vector_pop(struct vector *vec)
 {
 	if (vec->len == 0) return NULL;
 	return vec->values[--vec->len];

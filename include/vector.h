@@ -19,7 +19,7 @@ struct vector *roscha_vector_new_with_cap(size_t cap);
 
 ssize_t roscha_vector_push(struct vector *, void *val);
 
-void *vector_pop(struct vector *);
+void *roscha_vector_pop(struct vector *);
 
 void vector_free(struct vector *);
 

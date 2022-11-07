@@ -181,9 +181,9 @@ _roscha_vector_push(struct roscha_object *vec, struct roscha_object *val)
 }
 
 struct roscha_object *
-roscha_vector_pop(struct roscha_object *vec)
+roscha_roscha_vector_pop(struct roscha_object *vec)
 {
-	return (struct roscha_object *)vector_pop(vec->vector);
+	return (struct roscha_object *)roscha_vector_pop(vec->vector);
 }
 
 struct roscha_object *
