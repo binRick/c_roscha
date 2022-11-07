@@ -23,9 +23,11 @@ ROSCHA_OBJS:=$(ROSCHA_SRCS:%.c=$(OBJDIR)/%.o)
 ALL_OBJS:=$(ROSCHA_OBJS)
 TEST_OBJS:=$(filter-out $(OBJDIR)/src/roscha.o,$(ALL_OBJS))
 
-all: roscha
+all: roscha test
 
 test: tests/slice tests/lexer tests/parser tests/roscha
+	@find build/release/tests/* -type f|xargs -I % sh -c %
+
 
 tests/%: $(OBJDIR)/src/tests/%.o $(TEST_OBJS)
 	mkdir -p $(BUILDIR)/$(@D)
@@ -37,7 +39,7 @@ $(OBJDIR)/%.o: %.c
 
 roscha: $(ALL_OBJS)
 	mkdir -p $(@D)
-	$(CC) -o $(BUILDIR)/$@ $^ $(LIBS) $(CFLAGS)
+#	$(CC) -o $(BUILDIR)/$@ $^ $(LIBS) $(CFLAGS)
 
 clean:
 	rm -r build

@@ -9,7 +9,7 @@ vector_grow(struct vector *vec)
 }
 
 struct vector *
-vector_new_with_cap(size_t cap)
+roscha_vector_new_with_cap(size_t cap)
 {
 	struct vector *vec = malloc(sizeof(*vec));
 	if (!vec) return NULL;
@@ -25,7 +25,7 @@ vector_new_with_cap(size_t cap)
 }
 
 ssize_t
-vector_push(struct vector *vec, void *val)
+roscha_vector_push(struct vector *vec, void *val)
 {
 	if (vec->len >= vec->cap && !vector_grow(vec)) return -1;
 	vec->values[vec->len] = val;

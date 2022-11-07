@@ -388,15 +388,20 @@ test_loop_tag(void)
 	asserteq(slice_cmp(&blk->tag.loop.item.token.literal, &item), 0);
 	struct expression *seqexpr = blk->tag.loop.seq;
 	asserteq(seqexpr->type, EXPRESSION_IDENT);
+  printf("len:%d\n",blk->tag.loop.subblocks->len);
 	asserteq(slice_cmp(&seqexpr->ident.token.literal, &seq), 0);
-	asserteq(blk->tag.loop.subblocks->len, 2);
+	asserteq(blk->tag.loop.subblocks->len, 3);
 	struct block *sub1 = blk->tag.loop.subblocks->values[0];
 	struct block *sub2 = blk->tag.loop.subblocks->values[1];
+	struct block *sub3 = blk->tag.loop.subblocks->values[2];
+  printf("type:%d\n",sub1->type);
+  printf("type:%d\n",sub2->type);
+  printf("type:%d\n",sub3->type);
 	asserteq(sub1->type, BLOCK_TAG);
-	asserteq(sub2->type, BLOCK_TAG);
+	asserteq(sub3->type, BLOCK_TAG);
 	asserteq(sub1->tag.type, TAG_BREAK);
-	asserteq(sub2->tag.type, TAG_CLOSE);
-	asserteq(sub2->tag.token.type, TOKEN_ENDFOR);
+	asserteq(sub3->tag.type, TAG_CLOSE);
+	asserteq(sub3->tag.token.type, TOKEN_ENDFOR);
 
 	parser_destroy(parser);
 	template_destroy(tmpl);

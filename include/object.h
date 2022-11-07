@@ -87,13 +87,13 @@ void roscha_object_unref(struct roscha_object *);
  * line.
  */
 #define roscha_vector_push_new(vec, val) \
-	vector_push(vec->vector, roscha_object_new(val))
+	roscha_vector_push(vec->vector, roscha_object_new(val))
 
 /*
  * Helper function to push a value to a reference counted vector; increments the
  * count after adding the value to it.
  */
-void roscha_vector_push(struct roscha_object *vec, struct roscha_object *val);
+void _roscha_vector_push(struct roscha_object *vec, struct roscha_object *val);
 
 /*
  * Removes and returns the last value from a reference counted vector; doesn't

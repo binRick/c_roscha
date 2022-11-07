@@ -13,11 +13,11 @@ struct vector {
 	void **values;
 };
 
-struct vector *vector_new_with_cap(size_t cap);
+struct vector *roscha_vector_new_with_cap(size_t cap);
 
-#define vector_new() vector_new_with_cap(VEC_CAP)
+#define roscha_vector_new() roscha_vector_new_with_cap(VEC_CAP)
 
-ssize_t vector_push(struct vector *, void *val);
+ssize_t roscha_vector_push(struct vector *, void *val);
 
 void *vector_pop(struct vector *);
 

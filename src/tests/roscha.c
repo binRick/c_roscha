@@ -47,7 +47,7 @@ test_eval_variable(void)
 	struct roscha_object *foo = roscha_object_new(hmap_new());
 	roscha_hmap_set_new(foo, "bar", 8);
 	roscha_hmap_set_new(foo, "baz", 4);
-	struct roscha_object *l = roscha_object_new(vector_new());
+	struct roscha_object *l = roscha_object_new(roscha_vector_new());
 	roscha_vector_push_new(l, (slice_whole("hello")));
 	roscha_vector_push_new(l, (slice_whole("world")));
 	struct roscha_env *env = roscha_env_new();
@@ -120,7 +120,7 @@ test_eval_loop(void)
 				  "{% endfor %}";
 	char *expected = "0hello1world";
 
-	struct roscha_object *foo = roscha_object_new(vector_new());
+	struct roscha_object *foo = roscha_object_new(roscha_vector_new());
 	roscha_vector_push_new(foo, (slice_whole("hello")));
 	roscha_vector_push_new(foo, (slice_whole("world")));
 
